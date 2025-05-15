@@ -1,0 +1,52 @@
+### GET all books
+GET http://localhost:3000/books
+Content-Type: application/json
+
+###
+
+### GET a specific book (replace `:id` with actual UUID)
+GET http://localhost:3000/books/43df0aa9-7aac-45ef-804f-04c2121d5190
+Content-Type: application/json
+
+###
+
+### POST a new book
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald",
+  "publishedYear": 1925
+}
+
+###
+
+### PUT (update) a book by ID (replace `:id`)
+PUT http://localhost:3000/books/43df0aa9-7aac-45ef-804f-04c2121d5190
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby (Updated)",
+  "author": "F. Scott Fitzgerald",
+  "publishedYear": 1926
+}
+
+###
+
+### DELETE a book by ID (replace `:id`)
+DELETE http://localhost:3000/books/43df0aa9-7aac-45ef-804f-04c2121d5190
+Content-Type: application/json
+
+###
+
+### POST import CSV file (replace file path for your local file)
+POST http://localhost:3000/books/import
+Content-Type: multipart/form-data
+
+--boundary
+Content-Disposition: form-data; name="file"; filename="books.csv"
+Content-Type: text/csv
+
+< ./books.csv
+--boundary--
